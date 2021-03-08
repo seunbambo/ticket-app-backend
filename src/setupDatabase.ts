@@ -10,7 +10,7 @@ async function databaseSetUp() {
 async function connectToDatabase(): Promise<boolean> {
   const connectionOptions = {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   };
 
   try {

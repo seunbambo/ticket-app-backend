@@ -35,22 +35,21 @@ export class Ticket {
       value.user = id;
       value.ticketId = `${Math.floor(Math.random() * RANDOM_VALUE_MULTIPLIER)}`;
       const ticket = await TicketModel.create(value);
-      // if (ticket) {
-      //   await UserModel.updateOne(
-      //     {
-      //       _id: id
-      //     },
-      //     {
-      //       $push: {
-      //         tickets: {
-      //           ticket: ticket._id
-      //         }
-      //       }
-      //     }
-      //   );
-      //   ctx.body = { message: 'Ticket added successfully', ticket };
-      // }
-      ctx.body = { message: 'Ticket added successfully', ticket };
+      if (ticket) {
+        await UserModel.updateOne(
+          {
+            _id: id
+          },
+          {
+            $push: {
+              tickets: {
+                ticket: ticket._id
+              }
+            }
+          }
+        );
+        ctx.body = { message: 'Ticket added successfully', ticket };
+      }
     } catch (error) {
       ctx.body = error;
     }

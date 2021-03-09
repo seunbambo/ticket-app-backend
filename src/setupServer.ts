@@ -14,8 +14,8 @@ async function serverSetUp() {
 }
 
 function middleWares(server: Koa) {
-  server.use(koaCors());
   server.use(bodyParser());
+  server.use(koaCors());
 
   const routes = registerRoutes().routes();
   server.use(routes);

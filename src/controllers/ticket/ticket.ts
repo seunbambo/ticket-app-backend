@@ -87,27 +87,27 @@ export class Ticket {
     }
   }
 
-  public async deleteTicket(ctx: Context): Promise<void> {
-    try {
-      const { _id } = ctx.params;
-      const { id } = ctx.state.user;
+  // public async deleteTicket(ctx: Context): Promise<void> {
+  //   try {
+  //     const { _id } = ctx.params;
+  //     const { id } = ctx.state.user;
 
-      await TicketModel.deleteOne({ _id });
-      await UserModel.updateOne({
-        _id: id
-      }, {
-        $pull: {
-          tickets: {
-            ticket: _id
-          }
-        }
-      });
+  //     await TicketModel.deleteOne({ _id });
+  //     await UserModel.updateOne({
+  //       _id: id
+  //     }, {
+  //       $pull: {
+  //         tickets: {
+  //           ticket: _id
+  //         }
+  //       }
+  //     });
 
-      ctx.body = { message: 'Ticket deleted successfully' };
-    } catch(error) {
-      ctx.body = error;
-    }
-  }
+  //     ctx.body = { message: 'Ticket deleted successfully' };
+  //   } catch(error) {
+  //     ctx.body = error;
+  //   }
+  // }
   public async closeTicket(ctx: Context): Promise<void> {
     try {
       const { _id } = ctx.params;

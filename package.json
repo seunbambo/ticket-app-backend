@@ -7,7 +7,7 @@
     "preinstall": "npm install pm2 -g && pm2 install pm2-logrotate",
     "start": "pm2-runtime ./dist/app.js",
     "dev": "nodemon src/app.ts",
-    "build": "tsc -p ."
+    "build": "tsc -b ."
   },
   "keywords": [],
   "author": "",

@@ -34,7 +34,7 @@ export class Ticket {
 
       value.user = id;
       value.ticketId = `${Math.floor(Math.random() * RANDOM_VALUE_MULTIPLIER)}`;
-      const ticket: ITicket = await TicketModel.create(value);
+      const ticket: object = await TicketModel.create(value);
       if (ticket) {
         await UserModel.updateOne(
           {

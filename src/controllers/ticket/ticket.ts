@@ -45,7 +45,7 @@ export class Ticket {
           {
             $push: {
               tickets: {
-                ticket: ticket._id
+                ticket
               }
             }
           }

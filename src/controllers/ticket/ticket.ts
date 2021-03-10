@@ -48,6 +48,7 @@ export class Ticket {
       //       }
       //     }
       //   );
+      //   ctx.body = { message: 'Ticket added successfully', ticket };
       // }
       ctx.body = { message: 'Ticket added successfully', ticket };
     } catch (error) {
@@ -93,15 +94,15 @@ export class Ticket {
       const { id } = ctx.state.user;
 
       await TicketModel.deleteOne({ _id });
-      await UserModel.updateOne({
-        _id: id
-      }, {
-        $pull: {
-          tickets: {
-            ticket: _id
-          }
-        }
-      });
+      // await UserModel.updateOne({
+      //   _id: id
+      // }, {
+      //   $pull: {
+      //     tickets: {
+      //       ticket: _id
+      //     }
+      //   }
+      // });
 
       ctx.body = { message: 'Ticket deleted successfully' };
     } catch(error) {

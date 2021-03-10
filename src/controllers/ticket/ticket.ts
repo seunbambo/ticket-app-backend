@@ -3,7 +3,7 @@ import { Context } from 'koa';
 
 import { ITicket } from '../../interface/ticket.interface';
 import { TicketModel } from '../../models/ticket/Ticket.model';
-import { UserModel } from '../../models/user/User.model';
+// import { UserModel } from '../../models/user/User.model';
 
 const RANDOM_VALUE_MULTIPLIER = 10001;
 
@@ -91,7 +91,7 @@ export class Ticket {
   public async deleteTicket(ctx: Context): Promise<void> {
     try {
       const { _id } = ctx.params;
-      const { id } = ctx.state.user;
+      // const { id } = ctx.state.user;
 
       await TicketModel.deleteOne({ _id });
       // await UserModel.updateOne({

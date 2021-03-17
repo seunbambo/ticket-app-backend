@@ -91,7 +91,7 @@ export class Ticket {
   public async deleteTicket(ctx: Context): Promise<void> {
     try {
       const { _id } = ctx.params;
-      // const { id } = ctx.state.user;
+      const { id } = ctx.state.user;
 
       await TicketModel.deleteOne({ _id });
       await UserModel.updateOne({
